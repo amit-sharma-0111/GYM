@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone - Premium Fitness Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>FitZone</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-video">
+  <video autoplay muted loop id="hero-video">
+    <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3209241-uhd_3840_2160_25fps-3p1f8IEyUczgAyMNCzluiGvekQDCEb.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+</div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="animate-text">TRANSFORM</span>
+                <span class="animate-text">YOUR</span>
+                <span class="animate-text">BODY</span>
+            </h1>
+            <p class="hero-subtitle">Unleash your potential with our premium fitness programs</p>
+            <div class="hero-buttons">
+  <button class="btn btn-primary">Start Your Journey</button>
+  <button class="btn btn-secondary" id="watch-video-btn">Watch Video</button>
+</div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About FitZone</h2>
+                <p class="section-subtitle">Where fitness meets excellence</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Fitness Journey Starts Here</h3>
+                    <p>At FitZone, we believe fitness is not just about physical transformation—it's about building confidence, discipline, and a lifestyle that empowers you to achieve your goals.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>500+</h4>
+                            <p>Happy Members</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>50+</h4>
+                            <p>Expert Trainers</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>10+</h4>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Gym Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive fitness solutions for every goal</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Strength Training</h3>
+                    <p>Build muscle and increase strength with our state-of-the-art equipment and expert guidance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Cardio Workouts</h3>
+                    <p>Improve cardiovascular health with our dynamic cardio programs and modern equipment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Group Classes</h3>
+                    <p>Join energizing group fitness classes led by certified instructors in a motivating environment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Personal Training</h3>
+                    <p>Get personalized attention with one-on-one training sessions tailored to your specific goals.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Nutrition Coaching</h3>
+                    <p>Optimize your results with professional nutrition guidance and meal planning support.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Recovery & Wellness</h3>
+                    <p>Enhance recovery with our wellness services including massage therapy and stretching programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workout Videos Section -->
+    <section id="workout-videos" class="workout-videos section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Workout Previews</h2>
+                <p class="section-subtitle">Get a taste of our training programs</p>
+            </div>
+            <div class="videos-grid">
+  <div class="video-card">
+    <div class="video-container">
+      <video muted loop>
+        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/855828-hd_1920_1080_30fps-uxfqxRseU0h2xweYKkmKU6yJgV4FCp.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <i class="fas fa-play"></i>
+      </div>
+    </div>
+    <h3>HIIT Training</h3>
+    <p>High-intensity interval training for maximum results</p>
+  </div>
+  <div class="video-card">
+    <div class="video-container">
+      <video muted loop>
+        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3209241-uhd_3840_2160_25fps-3p1f8IEyUczgAyMNCzluiGvekQDCEb.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <i class="fas fa-play"></i>
+      </div>
+    </div>
+    <h3>Strength Circuit</h3>
+    <p>Build muscle with our comprehensive strength programs</p>
+  </div>
+  <div class="video-card">
+    <div class="video-container">
+      <video muted loop>
+        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/124251-730508536_medium-2yzmuukzdOZVqzKrbpUWmmooGQIjX9.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <i class="fas fa-play"></i>
+      </div>
+    </div>
+    <h3>Yoga Flow</h3>
+    <p>Improve flexibility and mindfulness with guided yoga</p>
+  </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Facility</h2>
+                <p class="section-subtitle">State-of-the-art equipment and modern spaces</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Gym Equipment">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Training Area">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cardio Section">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Free Weights">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Group Class Studio">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Locker Room">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Members Say</h2>
+                <p class="section-subtitle">Real stories from real people</p>
+                <div class="testimonial-filter">
+                    <button class="filter-btn active" data-filter="all">All Reviews</button>
+                    <button class="filter-btn" data-filter="top">Top Rated (4★+)</button>
+                </div>
+            </div>
+            <div class="testimonials-grid">
+  <div class="testimonial-card" data-rating="5">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="John Smith">
+      <div class="testimonial-info">
+        <h4>John Smith</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"FitZone transformed my life! The trainers are incredibly knowledgeable and the facility is top-notch. I've never felt stronger or more confident."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="5">
+    <div class="testimonial-header">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-04%20at%2009.15.05_aa7062f0.jpg-W5o7aCUaCERGmxOHK51u1BY7HXZXeX.jpeg" alt="Sarah Johnson">
+      <div class="testimonial-info">
+        <h4>Sarah Johnson</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"The group classes are amazing! Great energy, supportive community, and excellent instructors. I look forward to every workout."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="4">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Mike Davis">
+      <div class="testimonial-info">
+        <h4>Mike Davis</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"Great gym with modern equipment. The personal training sessions helped me reach my goals faster than I ever imagined possible."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="5">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Emily Chen">
+      <div class="testimonial-info">
+        <h4>Emily Chen</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"The nutrition coaching program is fantastic! Combined with the workouts, I've achieved results I never thought possible."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="3">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Alex Rodriguez">
+      <div class="testimonial-info">
+        <h4>Alex Rodriguez</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"Good gym overall. Equipment is well-maintained and staff is friendly. Could use more variety in group classes."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="4">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Lisa Thompson">
+      <div class="testimonial-info">
+        <h4>Lisa Thompson</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"Clean facilities, great atmosphere, and helpful staff. The yoga classes are particularly excellent!"</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="5">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="David Wilson">
+      <div class="testimonial-info">
+        <h4>David Wilson</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"Best investment I've made for my health! The trainers are professional, equipment is top-tier, and the community is incredibly supportive."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="4">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Rachel Green">
+      <div class="testimonial-info">
+        <h4>Rachel Green</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"Love the variety of classes offered! From high-intensity workouts to relaxing yoga sessions, there's something for everyone."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="5">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Marcus Johnson">
+      <div class="testimonial-info">
+        <h4>Marcus Johnson</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"The personal training program exceeded my expectations. Lost 30 pounds and gained so much strength. Highly recommend!"</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="3">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Jennifer Lee">
+      <div class="testimonial-info">
+        <h4>Jennifer Lee</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"Decent gym with good equipment. The location is convenient and parking is easy. Could improve on class scheduling."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="4">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Robert Brown">
+      <div class="testimonial-info">
+        <h4>Robert Brown</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"Great value for money! The facilities are clean, staff is helpful, and the equipment is well-maintained. Very satisfied with my membership."</p>
+  </div>
+  
+  <div class="testimonial-card" data-rating="5">
+    <div class="testimonial-header">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Amanda White">
+      <div class="testimonial-info">
+        <h4>Amanda White</h4>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <p>"FitZone has become my second home! The community atmosphere is incredible, and I've made so many friends here. Best decision ever!"</p>
+  </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to start your fitness journey?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>123 Fitness Street, Gym City, GC 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@fitzone.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon-Fri: 5AM-11PM<br>Sat-Sun: 6AM-10PM</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">Select a Service</option>
+                            <option value="personal-training">Personal Training</option>
+                            <option value="group-classes">Group Classes</option>
+                            <option value="nutrition">Nutrition Coaching</option>
+                            <option value="membership">Membership Info</option>
+                        </select>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <span class="error-message"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FitZone</h3>
+                    <p>Transform your body, transform your life. Join the FitZone family and discover what you're truly capable of achieving.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Personal Training</a></li>
+                        <li><a href="#">Group Classes</a></li>
+                        <li><a href="#">Nutrition Coaching</a></li>
+                        <li><a href="#">Wellness Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Fitness Street, Gym City</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@fitzone.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FitZone. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="image-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="/placeholder.svg" alt="">
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+<div class="video-modal" id="video-modal">
+  <div class="video-modal-content">
+    <span class="video-close">&times;</span>
+    <video id="modal-video" controls>
+      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3209241-uhd_3840_2160_25fps-3p1f8IEyUczgAyMNCzluiGvekQDCEb.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
