@@ -1220,3 +1220,393 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color);
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   PRICING SECTION
+═══════════════════════════════════════════════════════════════ */
+.pricing {
+  background: var(--bg-primary);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.pricing-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow);
+  border-color: var(--primary-color);
+}
+
+.pricing-card.featured {
+  background: var(--gradient);
+  border-color: transparent;
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(255, 107, 53, 0.35);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 22px;
+  right: -32px;
+  background: white;
+  color: #ff6b35;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 44px;
+  transform: rotate(45deg);
+  letter-spacing: 0.5px;
+}
+
+.pricing-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.pricing-card.featured .pricing-header h3 {
+  color: white;
+}
+
+.price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 2rem;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.pricing-card.featured .currency {
+  color: rgba(255,255,255,0.85);
+}
+
+.amount {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pricing-card.featured .amount {
+  -webkit-text-fill-color: white;
+  background: none;
+}
+
+.period {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.pricing-card.featured .period {
+  color: rgba(255,255,255,0.75);
+}
+
+.pricing-features {
+  list-style: none;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.pricing-features li {
+  padding: 0.65rem 0;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+.pricing-card.featured .pricing-features li {
+  border-bottom-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+}
+
+.pricing-features li.disabled {
+  opacity: 0.4;
+}
+
+.pricing-features li i.fa-check {
+  color: #2ecc71;
+  width: 14px;
+}
+
+.pricing-features li i.fa-times {
+  color: #e74c3c;
+  width: 14px;
+}
+
+.pricing-card.featured .pricing-features li i.fa-check {
+  color: #a8edcc;
+}
+
+.pricing-btn {
+  width: 100%;
+}
+
+/* Outline button for non-featured cards */
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+  background: var(--gradient);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-3px);
+}
+
+/* White button for featured card */
+.btn-white {
+  background: white;
+  color: #ff6b35;
+  font-weight: 700;
+  border: none;
+}
+
+.btn-white:hover {
+  background: rgba(255,255,255,0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+  .pricing-card.featured:hover {
+    transform: translateY(-10px);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BMI CALCULATOR SECTION
+═══════════════════════════════════════════════════════════════ */
+.bmi-calculator {
+  background: var(--bg-secondary);
+}
+
+.bmi-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.bmi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bmi-unit-toggle {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.unit-btn {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.unit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.unit-btn.active {
+  background: var(--gradient);
+  color: white;
+  border-color: transparent;
+}
+
+.bmi-form label {
+  display: block;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+/* BMI Result Card */
+.bmi-result {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.bmi-score {
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: color 0.4s ease;
+}
+
+.bmi-category {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  transition: color 0.4s ease;
+}
+
+/* Scale Bar */
+.bmi-scale {
+  margin: 1.5rem 0;
+}
+
+.scale-bar {
+  height: 14px;
+  border-radius: 7px;
+  background: linear-gradient(to right,
+    #3498db 0%,
+    #2ecc71 25%,
+    #f39c12 55%,
+    #e74c3c 80%
+  );
+  position: relative;
+  margin-bottom: 0.6rem;
+}
+
+.scale-indicator {
+  position: absolute;
+  top: -5px;
+  left: 0%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 3px solid white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Advice box */
+.bmi-advice {
+  margin-top: 1.2rem;
+  padding: 1rem 1.2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  min-height: 70px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .bmi-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BACK TO TOP BUTTON
+═══════════════════════════════════════════════════════════════ */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ACTIVE NAV LINK
+═══════════════════════════════════════════════════════════════ */
+.nav-link.active-link {
+  color: var(--primary-color);
+}
+
+.nav-link.active-link::after {
+  width: 100%;
+}

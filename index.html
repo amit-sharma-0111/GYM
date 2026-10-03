@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -19,6 +21,8 @@
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#bmi" class="nav-link">BMI</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
                 <a href="#testimonials" class="nav-link">Reviews</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -50,7 +54,7 @@
             </h1>
             <p class="hero-subtitle">Unleash your potential with our premium fitness programs</p>
             <div class="hero-buttons">
-  <button class="btn btn-primary">Start Your Journey</button>
+  <button class="btn btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Start Your Journey</button>
   <button class="btn btn-secondary" id="watch-video-btn">Watch Video</button>
 </div>
         </div>
@@ -146,6 +150,119 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Membership Plans</h2>
+                <p class="section-subtitle">Choose the perfect plan for your fitness journey</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Gym Access (Mon–Fri)</li>
+                        <li><i class="fas fa-check"></i> Basic Equipment Use</li>
+                        <li><i class="fas fa-check"></i> Locker Room Access</li>
+                        <li><i class="fas fa-check"></i> 1 Group Class/Week</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Personal Training</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Nutrition Coaching</li>
+                    </ul>
+                    <button class="btn btn-outline pricing-btn">Get Started</button>
+                </div>
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">59</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Full Gym Access (7 Days)</li>
+                        <li><i class="fas fa-check"></i> All Equipment Use</li>
+                        <li><i class="fas fa-check"></i> Locker Room + Sauna</li>
+                        <li><i class="fas fa-check"></i> Unlimited Group Classes</li>
+                        <li><i class="fas fa-check"></i> 2 Personal Training Sessions</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Nutrition Coaching</li>
+                    </ul>
+                    <button class="btn btn-white pricing-btn">Get Started</button>
+                </div>
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-header">
+                        <h3>Elite</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 24/7 Gym Access</li>
+                        <li><i class="fas fa-check"></i> All Equipment + VIP Area</li>
+                        <li><i class="fas fa-check"></i> Premium Locker + Spa</li>
+                        <li><i class="fas fa-check"></i> Unlimited Group Classes</li>
+                        <li><i class="fas fa-check"></i> 8 Personal Training Sessions</li>
+                        <li><i class="fas fa-check"></i> Full Nutrition Coaching</li>
+                    </ul>
+                    <button class="btn btn-outline pricing-btn">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMI Calculator Section -->
+    <section id="bmi" class="bmi-calculator section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">BMI Calculator</h2>
+                <p class="section-subtitle">Check your Body Mass Index and start your fitness journey today</p>
+            </div>
+            <div class="bmi-content">
+                <div class="bmi-form" data-aos="fade-right">
+                    <div class="bmi-unit-toggle">
+                        <button class="unit-btn active" id="metric-btn">Metric (kg / cm)</button>
+                        <button class="unit-btn" id="imperial-btn">Imperial (lb / in)</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Height (<span id="height-unit">cm</span>)</label>
+                        <input type="number" id="bmi-height" placeholder="e.g. 175" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Weight (<span id="weight-unit">kg</span>)</label>
+                        <input type="number" id="bmi-weight" placeholder="e.g. 70" min="1">
+                    </div>
+                    <button class="btn btn-primary" id="calculate-bmi" style="width:100%;margin-top:0.5rem;">Calculate BMI</button>
+                </div>
+                <div class="bmi-result" data-aos="fade-left">
+                    <div class="bmi-score" id="bmi-score">--</div>
+                    <div class="bmi-category" id="bmi-category">Enter your details</div>
+                    <div class="bmi-scale">
+                        <div class="scale-bar">
+                            <div class="scale-indicator" id="scale-indicator"></div>
+                        </div>
+                        <div class="scale-labels">
+                            <span>Underweight</span>
+                            <span>Normal</span>
+                            <span>Overweight</span>
+                            <span>Obese</span>
+                        </div>
+                    </div>
+                    <div class="bmi-advice" id="bmi-advice">Your result will appear here after calculation.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Workout Videos Section -->
     <section id="workout-videos" class="workout-videos section">
         <div class="container">
@@ -203,37 +320,37 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Gym Equipment">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Gym Equipment">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Training Area">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Training Area">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cardio Section">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cardio Section">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Free Weights">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Free Weights">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Group Class Studio">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Group Class Studio">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Locker Room">
+                    <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Locker Room">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
@@ -499,10 +616,10 @@
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/fitzone" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/fitzone" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/fitzone" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@fitzone" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <form class="contact-form" id="contact-form">
@@ -546,10 +663,10 @@
                     <h3>FitZone</h3>
                     <p>Transform your body, transform your life. Join the FitZone family and discover what you're truly capable of achieving.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/fitzone" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/fitzone" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/fitzone" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@fitzone" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -558,16 +675,20 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#bmi">BMI Calculator</a></li>
                         <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Personal Training</a></li>
-                        <li><a href="#">Group Classes</a></li>
-                        <li><a href="#">Nutrition Coaching</a></li>
-                        <li><a href="#">Wellness Programs</a></li>
+                        <li><a href="#services">Personal Training</a></li>
+                        <li><a href="#services">Group Classes</a></li>
+                        <li><a href="#services">Nutrition Coaching</a></li>
+                        <li><a href="#services">Wellness Programs</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -580,16 +701,21 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 FitZone. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2026 FitZone. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <!-- Modal -->
     <div class="modal" id="image-modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <img id="modal-image" src="/placeholder.svg" alt="">
+            <img id="modal-image" src="" alt="" loading="lazy">
         </div>
     </div>
 
@@ -604,5 +730,9 @@
 </div>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 80 });
+    </script>
 </body>
 </html>

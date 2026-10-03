@@ -17,6 +17,20 @@ const videoModal = document.getElementById("video-modal")
 const modalVideo = document.getElementById("modal-video")
 const videoClose = document.querySelector(".video-close")
 
+// ─── EmailJS Configuration ───────────────────────────────────────────────────
+// 1. Sign up free at https://www.emailjs.com
+// 2. Create an Email Service and note the Service ID
+// 3. Create an Email Template with variables:
+//    {{from_name}}, {{from_email}}, {{phone}}, {{service}}, {{message}}
+// 4. Go to Account > API Keys and copy your Public Key
+// 5. Replace the three placeholders below:
+const EMAILJS_PUBLIC_KEY  = "fx9aifu3xEDiV1gE7"
+const EMAILJS_SERVICE_ID  = "service_ucwtb2m"
+const EMAILJS_TEMPLATE_ID = "iozlfpv"
+emailjs.init(EMAILJS_PUBLIC_KEY)
+// ─────────────────────────────────────────────────────────────────────────────
+
+
 // Theme Toggle Functionality
 function initTheme() {
   const savedTheme = localStorage.getItem("theme") || "light"
@@ -262,7 +276,7 @@ function validateField(field) {
   // Phone validation
   if (fieldName === "phone" && value) {
     const phoneRegex = /^[+]?[1-9][\d]{0,15}$/
-    if (!phoneRegex.test(value.replace(/[\s\-$$$$]/g, ""))) {
+    if (!phoneRegex.test(value.replace(/[\s\-().]/g, ""))) {
       isValid = false
       errorMessage = "Please enter a valid phone number"
     }
@@ -316,9 +330,33 @@ function handleFormSubmit(e) {
   })
 
   if (isFormValid) {
-    // Simulate form submission
-    showFormSuccess()
-    contactForm.reset()
+    const submitBtn = contactForm.querySelector('button[type="submit"]')
+    const originalText = submitBtn.textContent
+
+    // Show loading state
+    submitBtn.textContent = "Sending..."
+    submitBtn.disabled = true
+    submitBtn.style.opacity = "0.75"
+
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+      .then(() => {
+        showFormSuccess()
+        contactForm.reset()
+        submitBtn.textContent = originalText
+        submitBtn.style.opacity = "1"
+        submitBtn.disabled = false
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error)
+        submitBtn.textContent = "Failed! Try Again"
+        submitBtn.style.background = "#e74c3c"
+        submitBtn.style.opacity = "1"
+        submitBtn.disabled = false
+        setTimeout(() => {
+          submitBtn.textContent = originalText
+          submitBtn.style.background = ""
+        }, 3000)
+      })
   }
 }
 
@@ -455,13 +493,168 @@ function init() {
   initParallaxEffect()
   initCounterAnimation()
   initLoadingAnimation()
-  initVideoModal() // Add this line
+  initVideoModal()
+  initBMICalculator()
+  initActiveNav()
+  initBackToTop()
 }
+
+// ─── BMI Calculator ───────────────────────────────────────────────────────────
+let bmiUnit = "metric"
+
+function initBMICalculator() {
+  const metricBtn   = document.getElementById("metric-btn")
+  const imperialBtn = document.getElementById("imperial-btn")
+  const calculateBtn = document.getElementById("calculate-bmi")
+
+  if (!calculateBtn) return
+
+  metricBtn.addEventListener("click", () => {
+    bmiUnit = "metric"
+    metricBtn.classList.add("active")
+    imperialBtn.classList.remove("active")
+    document.getElementById("height-unit").textContent = "cm"
+    document.getElementById("weight-unit").textContent = "kg"
+    document.getElementById("bmi-height").placeholder = "e.g. 175"
+    document.getElementById("bmi-weight").placeholder = "e.g. 70"
+    document.getElementById("bmi-height").value = ""
+    document.getElementById("bmi-weight").value = ""
+    resetBMIResult()
+  })
+
+  imperialBtn.addEventListener("click", () => {
+    bmiUnit = "imperial"
+    imperialBtn.classList.add("active")
+    metricBtn.classList.remove("active")
+    document.getElementById("height-unit").textContent = "in"
+    document.getElementById("weight-unit").textContent = "lb"
+    document.getElementById("bmi-height").placeholder = "e.g. 68"
+    document.getElementById("bmi-weight").placeholder = "e.g. 154"
+    document.getElementById("bmi-height").value = ""
+    document.getElementById("bmi-weight").value = ""
+    resetBMIResult()
+  })
+
+  calculateBtn.addEventListener("click", calculateBMI)
+
+  // Also allow Enter key
+  document.getElementById("bmi-height").addEventListener("keyup", (e) => { if (e.key === "Enter") calculateBMI() })
+  document.getElementById("bmi-weight").addEventListener("keyup", (e) => { if (e.key === "Enter") calculateBMI() })
+}
+
+function resetBMIResult() {
+  document.getElementById("bmi-score").textContent = "--"
+  document.getElementById("bmi-score").style.cssText = ""
+  document.getElementById("bmi-category").textContent = "Enter your details"
+  document.getElementById("bmi-category").style.color = ""
+  document.getElementById("bmi-advice").textContent = "Your result will appear here after calculation."
+  document.getElementById("scale-indicator").style.left = "0%"
+}
+
+function calculateBMI() {
+  const height = parseFloat(document.getElementById("bmi-height").value)
+  const weight = parseFloat(document.getElementById("bmi-weight").value)
+
+  if (!height || !weight || height <= 0 || weight <= 0) {
+    document.getElementById("bmi-advice").textContent = "⚠️ Please enter valid height and weight values."
+    return
+  }
+
+  let bmi
+  if (bmiUnit === "metric") {
+    const heightM = height / 100
+    bmi = weight / (heightM * heightM)
+  } else {
+    bmi = (703 * weight) / (height * height)
+  }
+  bmi = Math.round(bmi * 10) / 10
+
+  let category, advice, color, position
+
+  if (bmi < 18.5) {
+    category = "Underweight 🥗"
+    advice   = "Focus on gaining healthy weight. Our Nutrition Coaching and Strength Training programs can help you build muscle mass safely!"
+    color    = "#3498db"
+    position = Math.max(2, (bmi / 18.5) * 20)
+  } else if (bmi < 25) {
+    category = "Normal Weight ✅"
+    advice   = "Great job! You're in a healthy range. Keep it up with our Cardio and Group Classes to maintain your fitness level."
+    color    = "#2ecc71"
+    position = 20 + ((bmi - 18.5) / 6.5) * 30
+  } else if (bmi < 30) {
+    category = "Overweight ⚠️"
+    advice   = "Our HIIT and Cardio Workout programs can help you reach a healthy weight. Consider also our Nutrition Coaching!"
+    color    = "#f39c12"
+    position = 50 + ((bmi - 25) / 5) * 25
+  } else {
+    category = "Obese 🚨"
+    advice   = "Start your transformation today with Personal Training tailored to your needs. Our certified trainers will guide you every step of the way!"
+    color    = "#e74c3c"
+    position = Math.min(97, 75 + ((bmi - 30) / 10) * 22)
+  }
+
+  const scoreEl    = document.getElementById("bmi-score")
+  const categoryEl = document.getElementById("bmi-category")
+  const adviceEl   = document.getElementById("bmi-advice")
+  const indicator  = document.getElementById("scale-indicator")
+
+  scoreEl.textContent   = bmi
+  scoreEl.style.cssText = `-webkit-text-fill-color:${color};color:${color};background:none`
+  categoryEl.textContent = category
+  categoryEl.style.color = color
+  adviceEl.textContent  = advice
+  indicator.style.left  = position + "%"
+  indicator.style.background = color
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 
 // Event Listeners
 themeToggle.addEventListener("click", toggleTheme)
 hamburger.addEventListener("click", toggleMobileNav)
 window.addEventListener("scroll", handleNavbarScroll)
+
+// ─── Active Nav Link on Scroll ───────────────────────────────────────────────
+function initActiveNav() {
+  const sections = document.querySelectorAll("section[id]")
+  const navLinks = document.querySelectorAll(".nav-link")
+
+  window.addEventListener("scroll", () => {
+    let currentSection = ""
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100
+      if (window.scrollY >= sectionTop) {
+        currentSection = section.getAttribute("id")
+      }
+    })
+    navLinks.forEach((link) => {
+      link.classList.remove("active-link")
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active-link")
+      }
+    })
+  })
+}
+
+// ─── Back to Top Button ──────────────────────────────────────────────────────
+function initBackToTop() {
+  const btn = document.getElementById("back-to-top")
+  if (!btn) return
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      btn.classList.add("visible")
+    } else {
+      btn.classList.remove("visible")
+    }
+  })
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  })
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", init)
