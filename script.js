@@ -27,7 +27,7 @@ const videoClose = document.querySelector(".video-close")
 const EMAILJS_PUBLIC_KEY  = "fx9aifu3xEDiV1gE7"
 const EMAILJS_SERVICE_ID  = "service_ucwtb2m"
 const EMAILJS_TEMPLATE_ID = "iozlfpv"
-emailjs.init(EMAILJS_PUBLIC_KEY)
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY })
 // ─────────────────────────────────────────────────────────────────────────────
 
 
@@ -338,7 +338,13 @@ function handleFormSubmit(e) {
     submitBtn.disabled = true
     submitBtn.style.opacity = "0.75"
 
-    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      name:    document.getElementById("name").value,
+      email:   document.getElementById("email").value,
+      phone:   document.getElementById("phone").value,
+      service: document.getElementById("service").value,
+      message: document.getElementById("message").value,
+    })
       .then(() => {
         showFormSuccess()
         contactForm.reset()
