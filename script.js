@@ -26,7 +26,7 @@ const videoClose = document.querySelector(".video-close")
 // 5. Replace the three placeholders below:
 const EMAILJS_PUBLIC_KEY  = "fx9aifu3xEDiV1gE7"
 const EMAILJS_SERVICE_ID  = "service_ucwtb2m"
-const EMAILJS_TEMPLATE_ID = "iozlfpv"
+const EMAILJS_TEMPLATE_ID = "template_d7awggk"
 emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY })
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -338,22 +338,33 @@ function handleFormSubmit(e) {
     submitBtn.disabled = true
     submitBtn.style.opacity = "0.75"
 
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      name:    document.getElementById("name").value,
-      email:   document.getElementById("email").value,
-      phone:   document.getElementById("phone").value,
-      service: document.getElementById("service").value,
-      message: document.getElementById("message").value,
+    fetch("https://formspree.io/f/myezrzgw", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name:    document.getElementById("name").value,
+        email:   document.getElementById("email").value,
+        phone:   document.getElementById("phone").value,
+        service: document.getElementById("service").value,
+        message: document.getElementById("message").value,
+      })
     })
-      .then(() => {
-        showFormSuccess()
-        contactForm.reset()
-        submitBtn.textContent = originalText
-        submitBtn.style.opacity = "1"
-        submitBtn.disabled = false
+      .then((response) => {
+        if (response.ok) {
+          showFormSuccess()
+          contactForm.reset()
+          submitBtn.textContent = originalText
+          submitBtn.style.opacity = "1"
+          submitBtn.disabled = false
+        } else {
+          return response.json().then((data) => { throw data })
+        }
       })
       .catch((error) => {
-        console.error("EmailJS Error:", error)
+        console.error("Form Error:", error)
         submitBtn.textContent = "Failed! Try Again"
         submitBtn.style.background = "#e74c3c"
         submitBtn.style.opacity = "1"
